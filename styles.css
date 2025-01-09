@@ -1,0 +1,128 @@
+:root {
+    --neon-red: #ff0000;
+    --dark-red: #220000;
+    --background: #080000;
+    --text-glow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--neon-red);
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    position: relative;
+    background-image: linear-gradient(45deg, #080000 25%, #0a0000 25%, #0a0000 50%, #080000 50%, #080000 75%, #0a0000 75%, #0a0000 100%);
+    background-size: 4px 4px;
+}
+
+.top-nav {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: var(--neon-red);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-shadow: var(--text-glow);
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-logo {
+    max-width: 200px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+}
+
+.title {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: var(--text-glow);
+    animation: glitch 2s infinite;
+}
+
+.quote-container, .thought-container {
+    background-color: var(--dark-red);
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--neon-red);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.quote, .thought {
+    margin: 0.5rem 0;
+    text-shadow: var(--text-glow);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.icon img {
+    width: 30px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(12%) sepia(100%) saturate(5625%) hue-rotate(0deg) brightness(118%) contrast(119%);
+    transition: transform 0.3s ease;
+}
+
+.side-image {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 300px;
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.3));
+}
+
+.side-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* Animations */
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+/* Hover effects */
+.nav-link:hover, .icon:hover {
+    opacity: 0.8;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+}
+
+.icon:hover img {
+    transform: scale(1.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .side-image {
+        position: static;
+        transform: none;
+        margin: 2rem auto;
+    }
+} 
