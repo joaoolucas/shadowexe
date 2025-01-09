@@ -15,13 +15,13 @@
         </div>
 
         <div class="quote-container">
-            <p class="quote">>I am the Ultimate Life Form.</p>
-            <p class="quote">>System: CHAOS initialized.</p>
+            <p class="quote terminal-text" data-text=">I am the Ultimate Life Form."></p>
+            <p class="quote terminal-text" data-text=">System: CHAOS initialized."></p>
         </div>
 
         <div class="thought-container">
-            <p class="thought">> Where's that DAMN fourth Chaos Emerald?</p>
-            <p class="thought">> Running chaos_control.exe...</p>
+            <p class="thought terminal-text" data-text=">> Where's that DAMN fourth Chaos Emerald?"></p>
+            <p class="thought terminal-text" data-text=">> Running chaos_control.exe..."></p>
         </div>
 
         <div class="social-icons">
@@ -33,5 +33,33 @@
             <img src="shadow-side.gif" alt="Shadow Side Image">
         </div>
     </main>
+
+    <script>
+        function typeWriter(element, text, i = 0) {
+            if (i === 0) {
+                element.textContent = '';
+            }
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                setTimeout(() => typeWriter(element, text, i + 1), 50);
+            }
+        }
+
+        function startTypingEffect() {
+            const terminalTexts = document.querySelectorAll('.terminal-text');
+            let delay = 0;
+            
+            terminalTexts.forEach(element => {
+                setTimeout(() => {
+                    const text = element.getAttribute('data-text');
+                    typeWriter(element, text);
+                }, delay);
+                delay += 1500; // Delay between each text block
+            });
+        }
+
+        // Start the effect when the page loads
+        document.addEventListener('DOMContentLoaded', startTypingEffect);
+    </script>
 </body>
 </html> 
