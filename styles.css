@@ -118,4 +118,12 @@ body {
         transform: none;
         margin: 2rem auto;
     }
+}
+
+.timestamp {
+    color: var(--neon-red);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    text-shadow: var(--text-glow);
+    font-family: 'Courier New', monospace;
 } 
